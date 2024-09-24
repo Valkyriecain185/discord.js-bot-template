@@ -7,6 +7,12 @@
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
       "outputs": [".next/**", "!.next/cache/**"]
     },
+    "clean": {
+      "dependsOn": ["^clean"]
+    },
+    "clean:full": {
+      "dependsOn": ["^clean:full"]
+    },
     "lint": {
       "dependsOn": ["^lint"]
     },
