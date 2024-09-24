@@ -6,21 +6,37 @@
     "clean": "turbo clean",
     "clean:full": "turbo clean:full && rimraf .turbo node_modules",
     "dev": "turbo dev",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "lint": "turbo lint",
-    "lint:fix": "turbo lint:fix",
+    "format": "prettier --ignore-unknown --check",
+    "format:fix": "prettier --ignore-unknown --write",
+    "lint": "turbo run lint",
+    "lint:fix": "turbo run lint:fix",
+    "lint-format": "turbo run --parallel lint format",
+    "lint-format:fix": "turbo run --parallel lint:fix format:fix",
+    "prepare": "node .husky/install.mjs",
     "start": "turbo start --filter=web",
-    "typecheck": "turbo typecheck"
+    "test": "turbo test",
+    "typecheck": "turbo typecheck",
+    "typecheck:watch": "turbo typecheck -- --watch"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --ignore-unknown --write",
+      "turbo run typecheck"
+    ],
+    "*.{md,json,yaml,html,css}": "prettier --write"
+  },
+  "packageManager": "pnpm@9.1.4",
+  "engines": {
+    "node": ">=20.13.1",
+    "pnpm": ">=9.1.4"
   },
   "devDependencies": {
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
     "prettier": "^3.3.3",
     "rimraf": "^6.0.1",
     "turbo": "^2.1.2",
     "typescript": "^5.6.2"
-  },
-  "packageManager": "pnpm@9.1.4",
-  "engines": {
-    "node": ">=20",
-    "pnpm": ">=9"
   }
 }
