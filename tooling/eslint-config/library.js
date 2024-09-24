@@ -6,19 +6,19 @@ const project = resolve(process.cwd(), "tsconfig.json");
 module.exports = {
   extends: [
     "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
     "prettier",
-    require.resolve("@vercel/style-guide/eslint/next"),
-    "turbo",
+    "turbo"
   ],
+  plugins: ["only-warn"],
   globals: {
     React: true,
     JSX: true,
   },
   env: {
     node: true,
-    browser: true,
   },
-  plugins: ["only-warn"],
   settings: {
     "import/resolver": {
       typescript: {
@@ -30,6 +30,11 @@ module.exports = {
     // Ignore dotfiles
     ".*.js",
     "node_modules/",
+    "dist/",
   ],
-  overrides: [{ files: ["*.js?(x)", "*.ts?(x)"] }],
+  overrides: [
+    {
+      files: ["*.js?(x)", "*.ts?(x)"],
+    },
+  ],
 };

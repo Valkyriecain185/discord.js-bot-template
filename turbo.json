@@ -1,24 +1,28 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "ui": "tui",
+  "globalEnv": ["NODE_ENV"],
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
-      "outputs": [".next/**", "!.next/cache/**"]
+      "outputs": [".next/**", "!.next/cache/**", ".dist/**"]
     },
-    "clean": {
-      "dependsOn": ["^clean"]
-    },
-    "clean:full": {
-      "dependsOn": ["^clean:full"]
+    "clean": {},
+    "clean:full": {},
+    "dev": {
+      "cache": false,
+      "persistent": true
     },
     "lint": {
       "dependsOn": ["^lint"]
     },
-    "dev": {
-      "cache": false,
-      "persistent": true
+    "lint:fix": {
+      "dependsOn": ["^lint:fix"]
+    },
+    "start": {},
+    "typecheck": {
+      "dependsOn": ["^typecheck"]
     }
   }
 }

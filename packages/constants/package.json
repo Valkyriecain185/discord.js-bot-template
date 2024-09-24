@@ -1,0 +1,46 @@
+{
+  "name": "@repo/constants",
+  "version": "0.0.0",
+  "private": true,
+  "main": "src/index.ts",
+  "exports": {
+    ".": {
+      "default": "./src/index.ts"
+    }
+  },
+  "publishConfig": {
+    "access": "public",
+    "main": "dist/index.js",
+    "module": "./dist/index.mjs",
+    "types": "./dist/index.d.ts",
+    "exports": {
+      ".": {
+        "import": "./dist/index.mjs",
+        "require": "./dist/index.js"
+      }
+    }
+  },
+  "files": [
+    "dist/**"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "clean": "rimraf dist",
+    "clean:full": "rimraf dist .turbo node_modules",
+    "dev": "tsup --watch",
+    "lint": "eslint . --max-warnings 0",
+    "lint:fix": "eslint . --fix",
+    "typecheck": "tsc --noEmit",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "^20.11.24",
+    "eslint": "^8.57.0",
+    "tsup": "^8.0.2",
+    "typescript": "^5.6.2"
+  },
+  "dependencies": {
+  }
+}
