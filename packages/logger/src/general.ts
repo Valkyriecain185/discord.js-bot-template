@@ -4,7 +4,12 @@ import { createLogger, format, transports } from 'winston';
 
 const saveLogsInMonorepoRoot = true;
 const serviceName = path.basename(__filename).split('.')[0];
-const logDirectory = path.join(__dirname, saveLogsInMonorepoRoot ? `../../../logs/${serviceName}` : `../logs/${serviceName}`);
+const logDirectory = path.join(
+  __dirname,
+  saveLogsInMonorepoRoot
+    ? `../../../logs/${serviceName}`
+    : `../logs/${serviceName}`
+);
 const maxSingleFileSize = Constants.BYTES_IN_ONE_GB * 10;
 
 const mixedLogger = createLogger({
@@ -36,12 +41,11 @@ const mixedLogger = createLogger({
 });
 
 if (process.env.NODE_ENV !== 'production') {
-  mixedLogger.add(new transports.Console({
-    format: format.combine(
-      format.colorize(),
-      format.simple()
-    ),
-  }));
+  mixedLogger.add(
+    new transports.Console({
+      format: format.combine(format.colorize(), format.simple()),
+    })
+  );
 }
 
 export default mixedLogger;

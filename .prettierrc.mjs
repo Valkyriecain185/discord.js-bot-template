@@ -7,6 +7,17 @@ const config = {
   semi: true,
   singleQuote: true,
   useTabs: false,
+  arrowParens: 'always',
+  bracketSameLine: false,
+  endOfLine: 'lf',
+  bracketSpacing: true,
+  embeddedLanguageFormatting: 'auto',
+  experimentalTernaries: false,
+  htmlWhitespaceSensitivity: 'css',
+  insertPragma: false,
+  jsxSingleQuote: false,
+  singleAttributePerLine: true,
+  tabWidth: 2,
 };
 
 export default config;

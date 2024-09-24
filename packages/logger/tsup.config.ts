@@ -6,12 +6,12 @@ export default defineConfig((options: Options) => ({
   format: ['cjs', 'esm'],
   entry: {
     index: 'src/index.ts',
-    'general': 'src/general.ts',
+    general: 'src/general.ts',
   },
   dts: {
     entry: {
       index: 'src/index.ts',
-      'general': 'src/general.ts',
+      general: 'src/general.ts',
     },
   },
   ...options,
