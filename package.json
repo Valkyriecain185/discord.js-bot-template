@@ -10,8 +10,6 @@
     "format:fix": "prettier --ignore-unknown --write .",
     "lint": "turbo run lint",
     "lint:fix": "turbo run lint:fix",
-    "lint-format": "turbo run --parallel lint format",
-    "lint-format:fix": "turbo run --parallel lint:fix format:fix",
     "prepare": "node .husky/install.mjs",
     "start": "turbo start --filter=web",
     "test": "turbo test",
