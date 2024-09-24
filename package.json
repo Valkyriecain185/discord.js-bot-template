@@ -3,6 +3,7 @@
   "private": true,
   "scripts": {
     "build": "turbo build",
+    "checks": "turbo lint:fix && pnpm run format:fix && turbo typecheck",
     "clean": "turbo clean",
     "clean:full": "turbo clean:full && rimraf .turbo node_modules",
     "dev": "turbo dev",

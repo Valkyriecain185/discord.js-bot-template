@@ -12,7 +12,7 @@ const logDirectory = path.join(
 );
 const maxSingleFileSize = Constants.BYTES_IN_ONE_GB * 10;
 
-const mixedLogger = createLogger({
+const generalLogger = createLogger({
   level: 'info',
   format: format.combine(
     format.timestamp({
@@ -41,11 +41,11 @@ const mixedLogger = createLogger({
 });
 
 if (process.env.NODE_ENV !== 'production') {
-  mixedLogger.add(
+  generalLogger.add(
     new transports.Console({
       format: format.combine(format.colorize(), format.simple()),
     })
   );
 }
 
-export default mixedLogger;
+export default generalLogger;

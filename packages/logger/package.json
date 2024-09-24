@@ -30,6 +30,9 @@
   "files": [
     "dist/**"
   ],
+  "jest": {
+    "preset": "@repo/jest-presets/jest/node"
+  },
   "scripts": {
     "build": "tsup",
     "clean": "rimraf dist",
@@ -38,13 +41,16 @@
     "lint": "eslint . --max-warnings 0",
     "lint:fix": "eslint . --fix",
     "typecheck": "tsc --noEmit",
-    "test": "echo \"Warning: no test specified\" && exit 0"
+    "test": "jest"
   },
   "devDependencies": {
+    "@jest/globals": "^29.7.0",
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
+    "@types/jest": "^29.5.13",
     "@types/node": "^20.11.24",
     "eslint": "^8.57.0",
+    "jest": "^29.7.0",
     "tsup": "^8.0.2",
     "typescript": "^5.6.2"
   },
