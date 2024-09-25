@@ -6,6 +6,7 @@
     "checks": "turbo lint:fix && pnpm run format:fix && turbo typecheck",
     "clean": "turbo clean",
     "clean:full": "turbo clean:full && rimraf .turbo node_modules",
+    "commit": "cz",
     "dev": "turbo dev",
     "format": "prettier --ignore-unknown --check .",
     "format:fix": "prettier --ignore-unknown --write .",
@@ -24,11 +25,17 @@
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
+    "cz-conventional-changelog": "^3.3.0",
     "husky": "^9.1.6",
     "lint-staged": "^15.2.10",
     "prettier": "^3.3.3",
     "rimraf": "^6.0.1",
     "turbo": "^2.1.2",
     "typescript": "^5.6.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
